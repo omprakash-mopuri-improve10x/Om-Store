@@ -43,8 +43,6 @@ public class ProductsActivity extends BaseActivity {
 
     private void fetchProducts() {
         showProgressBar();
-        FakeStoreApi fakeStoreApi = new FakeStoreApi();
-        FakeStoreService fakeStoreService = fakeStoreApi.createCategoryService();
         Call<List<Product>> call = fakeStoreService.fetchProducts(category);
         call.enqueue(new Callback<List<Product>>() {
             @Override

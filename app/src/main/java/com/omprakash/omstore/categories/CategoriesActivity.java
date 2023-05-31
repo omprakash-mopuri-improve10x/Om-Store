@@ -38,8 +38,6 @@ public class CategoriesActivity extends BaseActivity {
 
     private void fetchCategories() {
         showProgressBar();
-        FakeStoreApi fakeStoreApi = new FakeStoreApi();
-        FakeStoreService fakeStoreService = fakeStoreApi.createCategoryService();
         Call<List<String>> call = fakeStoreService.fetchCategories();
         call.enqueue(new Callback<List<String>>() {
             @Override
