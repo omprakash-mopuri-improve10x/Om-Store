@@ -2,7 +2,7 @@ package com.omprakash.omstore.products;
 
 public class Rating {
     private Float rate;
-    private Float count;
+    private Integer count;
 
     public Float getRate() {
         return rate;
@@ -12,11 +12,11 @@ public class Rating {
         this.rate = rate;
     }
 
-    public Float getCount() {
+    public Integer getCount() {
         return count;
     }
 
-    public void setCount(Float count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
 }
