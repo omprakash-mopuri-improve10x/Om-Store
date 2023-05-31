@@ -1,17 +1,12 @@
 package com.omprakash.omstore.products;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.omprakash.omstore.BaseActivity;
-import com.omprakash.omstore.R;
 import com.omprakash.omstore.databinding.ActivityProductsBinding;
-import com.omprakash.omstore.network.FakeStoreApi;
-import com.omprakash.omstore.network.FakeStoreService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +20,7 @@ public class ProductsActivity extends BaseActivity {
     ActivityProductsBinding binding;
     ProductsAdapter productsAdapter;
     ArrayList<Product> products = new ArrayList<>();
-    String category;
+    String categoryName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +28,8 @@ public class ProductsActivity extends BaseActivity {
         binding = ActivityProductsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         if (getIntent().hasExtra("category")) {
-            category = getIntent().getStringExtra("category");
-            getSupportActionBar().setTitle(category);
+            categoryName = getIntent().getStringExtra("category");
+            getSupportActionBar().setTitle(categoryName);
         }
         fetchProducts();
         setupProductsAdapter();
@@ -43,7 +38,7 @@ public class ProductsActivity extends BaseActivity {
 
     private void fetchProducts() {
         showProgressBar();
-        Call<List<Product>> call = fakeStoreService.fetchProducts(category);
+        Call<List<Product>> call = fakeStoreService.fetchProducts(categoryName);
         call.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
