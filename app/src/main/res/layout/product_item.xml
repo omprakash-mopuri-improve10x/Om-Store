@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        app:cardCornerRadius="10dp"
-        app:strokeColor="#000000"
+        app:cardCornerRadius="6dp"
+        app:strokeColor="#F57C00"
         app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout

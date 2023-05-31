@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="20dp"
+    app:cardCornerRadius="10dp"
     app:cardElevation="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,14 +16,14 @@
             android:id="@+id/category_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed-medium"
+            android:fontFamily="serif"
             android:gravity="center"
             android:includeFontPadding="false"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
             android:text="TextView"
             android:textAllCaps="true"
-            android:textColor="#111F75"
+            android:textColor="#F57C00"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
