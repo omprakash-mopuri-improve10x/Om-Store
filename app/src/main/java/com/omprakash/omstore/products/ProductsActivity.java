@@ -16,5 +16,9 @@ public class ProductsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityProductsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        if (getIntent().hasExtra("category")) {
+            String category = getIntent().getStringExtra("category");
+            getSupportActionBar().setTitle(category);
+        }
     }
 }

@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.omprakash.omstore.databinding.CategoryItemBinding;
+import com.omprakash.omstore.products.ProductsActivity;
 
 import java.util.List;
 
@@ -31,6 +32,11 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         holder.binding.categoryName.setText(categories.get(position));
+        holder.binding.getRoot().setOnClickListener(v -> {
+            Intent intent = new Intent(holder.binding.getRoot().getContext(), ProductsActivity.class);
+            intent.putExtra("category", categories.get(position));
+            holder.binding.getRoot().getContext().startActivity(intent);
+        });
     }
 
     @Override
