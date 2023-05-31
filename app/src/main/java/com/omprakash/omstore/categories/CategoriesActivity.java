@@ -42,7 +42,7 @@ public class CategoriesActivity extends BaseActivity {
         call.enqueue(new Callback<List<String>>() {
             @Override
             public void onResponse(Call<List<String>> call, Response<List<String>> response) {
-                showToast("Successfully load the data");
+                showToast("Successfully loaded the data");
                 List<String> categories = response.body();
                 categoriesAdapter.setData(categories);
             }

@@ -47,7 +47,7 @@ public class ProductsActivity extends BaseActivity {
         call.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
-                showToast("Successfully load the data");
+                showToast("Successfully loaded the data");
                 List<Product> products = response.body();
                 productsAdapter.setProducts(products);
             }
