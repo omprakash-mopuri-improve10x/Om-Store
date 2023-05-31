@@ -22,6 +22,12 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
         notifyDataSetChanged();
     }
 
+    private OnItemActionListener onItemActionListener;
+
+    void setOnItemActionListener(OnItemActionListener onItemActionListener) {
+        this.onItemActionListener = onItemActionListener;
+    }
+
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,9 +42,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
         holder.binding.setProduct(product);
         holder.binding.productRating.setRating(product.rating.getRate());
         holder.binding.getRoot().setOnClickListener(v -> {
-            Intent intent = new Intent(holder.binding.getRoot().getContext(), ProductDetailsActivity.class);
-            intent.putExtra("productId", product.getId());
-            holder.binding.getRoot().getContext().startActivity(intent);
+            onItemActionListener.onItemClicked(product.getId());
         });
     }
 

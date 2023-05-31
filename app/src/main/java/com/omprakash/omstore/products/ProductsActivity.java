@@ -2,10 +2,12 @@ package com.omprakash.omstore.products;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.omprakash.omstore.BaseActivity;
+import com.omprakash.omstore.ProductDetailsActivity;
 import com.omprakash.omstore.databinding.ActivityProductsBinding;
 
 import java.util.ArrayList;
@@ -59,6 +61,14 @@ public class ProductsActivity extends BaseActivity {
     private void setupProductsAdapter() {
         productsAdapter = new ProductsAdapter();
         productsAdapter.setProducts(products);
+        productsAdapter.setOnItemActionListener(new OnItemActionListener() {
+            @Override
+            public void onItemClicked(int productId) {
+                Intent intent = new Intent(getApplicationContext(), ProductDetailsActivity.class);
+                intent.putExtra("productId", productId);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setupProductsRv() {
