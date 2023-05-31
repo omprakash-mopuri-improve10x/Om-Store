@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.omprakash.omstore.BaseActivity;
@@ -36,12 +37,14 @@ public class CategoriesActivity extends BaseActivity {
     }
 
     private void fetchCategories() {
+        showProgressBar();
         FakeStoreApi fakeStoreApi = new FakeStoreApi();
         FakeStoreService fakeStoreService = fakeStoreApi.createCategoryService();
         Call<List<String>> call = fakeStoreService.fetchCategories();
         call.enqueue(new Callback<List<String>>() {
             @Override
             public void onResponse(Call<List<String>> call, Response<List<String>> response) {
+                hideProgressBar();
                 showToast("Successfully loaded the data");
                 List<String> categories = response.body();
                 categoriesAdapter.setData(categories);
@@ -49,6 +52,7 @@ public class CategoriesActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<List<String>> call, Throwable t) {
+                hideProgressBar();
                 showToast("Failed to load the data");
             }
         });
@@ -62,5 +66,13 @@ public class CategoriesActivity extends BaseActivity {
     private void setupCategoriesRv() {
         binding.categoriesRv.setLayoutManager(new LinearLayoutManager(this));
         binding.categoriesRv.setAdapter(categoriesAdapter);
+    }
+
+    private void showProgressBar() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        binding.progressBar.setVisibility(View.GONE);
     }
 }

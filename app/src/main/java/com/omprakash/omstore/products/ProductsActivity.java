@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.omprakash.omstore.BaseActivity;
@@ -41,12 +42,14 @@ public class ProductsActivity extends BaseActivity {
     }
 
     private void fetchProducts() {
+        showProgressBar();
         FakeStoreApi fakeStoreApi = new FakeStoreApi();
         FakeStoreService fakeStoreService = fakeStoreApi.createCategoryService();
         Call<List<Product>> call = fakeStoreService.fetchProducts(category);
         call.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                hideProgressBar();
                 showToast("Successfully loaded the data");
                 List<Product> products = response.body();
                 productsAdapter.setProducts(products);
@@ -54,6 +57,7 @@ public class ProductsActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
+                hideProgressBar();
                 showToast("Failed to load the data");
             }
         });
@@ -67,5 +71,13 @@ public class ProductsActivity extends BaseActivity {
     private void setupProductsRv() {
         binding.productsRv.setLayoutManager(new GridLayoutManager(this, 2));
         binding.productsRv.setAdapter(productsAdapter);
+    }
+
+    private void showProgressBar() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        binding.progressBar.setVisibility(View.GONE);
     }
 }

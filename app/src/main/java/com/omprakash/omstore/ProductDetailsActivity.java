@@ -3,6 +3,7 @@ package com.omprakash.omstore;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.omprakash.omstore.databinding.ActivityProductDetailsBinding;
 import com.omprakash.omstore.network.FakeStoreApi;
@@ -31,12 +32,14 @@ public class ProductDetailsActivity extends BaseActivity {
     }
 
     private void fetchProduct() {
+        showProgressBar();
         FakeStoreApi fakeStoreApi = new FakeStoreApi();
         FakeStoreService fakeStoreService = fakeStoreApi.createCategoryService();
         Call<Product> call = fakeStoreService.fetchProduct(categoryId);
         call.enqueue(new Callback<Product>() {
             @Override
             public void onResponse(Call<Product> call, Response<Product> response) {
+                hideProgressBar();
                 showToast("successfully loaded the data");
                 Product product = response.body();
                 binding.setProduct(product);
@@ -45,8 +48,17 @@ public class ProductDetailsActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<Product> call, Throwable t) {
+                hideProgressBar();
                 showToast("Failed to load the data");
             }
         });
+    }
+
+    private void showProgressBar() {
+        binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        binding.progressBar.setVisibility(View.GONE);
     }
 }
