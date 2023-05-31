@@ -17,10 +17,10 @@ import retrofit2.Response;
 
 public class ProductsActivity extends BaseActivity {
 
-    ActivityProductsBinding binding;
-    ProductsAdapter productsAdapter;
-    ArrayList<Product> products = new ArrayList<>();
-    String categoryName;
+    private ActivityProductsBinding binding;
+    private ProductsAdapter productsAdapter;
+    private ArrayList<Product> products = new ArrayList<>();
+    private String categoryName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

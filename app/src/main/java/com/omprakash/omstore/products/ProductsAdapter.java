@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
 
-    List<Product> products;
+    private List<Product> products;
 
     void setProducts(List<Product> products) {
         this.products = products;
@@ -37,7 +37,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
         holder.binding.productRating.setRating(product.rating.getRate());
         holder.binding.getRoot().setOnClickListener(v -> {
             Intent intent = new Intent(holder.binding.getRoot().getContext(), ProductDetailsActivity.class);
-            intent.putExtra("categoryId", product.getId());
+            intent.putExtra("productId", product.getId());
             holder.binding.getRoot().getContext().startActivity(intent);
         });
     }

@@ -21,9 +21,9 @@ import retrofit2.Response;
 
 public class CategoriesActivity extends BaseActivity {
 
-    ActivityCategoriesBinding binding;
-    CategoriesAdapter categoriesAdapter;
-    ArrayList<String> categories = new ArrayList<>();
+    private ActivityCategoriesBinding binding;
+    private CategoriesAdapter categoriesAdapter;
+    private ArrayList<String> categories = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
