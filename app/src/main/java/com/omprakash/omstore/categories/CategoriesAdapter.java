@@ -21,6 +21,12 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder> 
         notifyDataSetChanged();
     }
 
+    private OnItemActionListener onItemActionListener;
+
+    void setOnItemActionListener(OnItemActionListener onItemActionListener) {
+        this.onItemActionListener = onItemActionListener;
+    }
+
     @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -32,11 +38,8 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoryViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         holder.binding.categoryName.setText(categories.get(position));
-        // Todo
         holder.binding.getRoot().setOnClickListener(v -> {
-            Intent intent = new Intent(holder.binding.getRoot().getContext(), ProductsActivity.class);
-            intent.putExtra("category", categories.get(position));
-            holder.binding.getRoot().getContext().startActivity(intent);
+            onItemActionListener.onItemClicked(categories.get(position));
         });
     }
 

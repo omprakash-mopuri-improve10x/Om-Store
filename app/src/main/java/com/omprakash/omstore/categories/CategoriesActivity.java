@@ -3,6 +3,7 @@ package com.omprakash.omstore.categories;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import com.omprakash.omstore.BaseActivity;
 import com.omprakash.omstore.databinding.ActivityCategoriesBinding;
 import com.omprakash.omstore.network.FakeStoreApi;
 import com.omprakash.omstore.network.FakeStoreService;
+import com.omprakash.omstore.products.ProductsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +61,14 @@ public class CategoriesActivity extends BaseActivity {
     private void setupCategoriesAdapter() {
         categoriesAdapter = new CategoriesAdapter();
         categoriesAdapter.setData(categories);
+        categoriesAdapter.setOnItemActionListener(new OnItemActionListener() {
+            @Override
+            public void onItemClicked(String categoryName) {
+                Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
+                intent.putExtra("categoryName", categoryName);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setupCategoriesRv() {

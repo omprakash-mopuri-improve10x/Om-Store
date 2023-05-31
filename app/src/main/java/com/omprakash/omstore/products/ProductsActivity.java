@@ -27,8 +27,8 @@ public class ProductsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityProductsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        if (getIntent().hasExtra("category")) {
-            categoryName = getIntent().getStringExtra("category");
+        if (getIntent().hasExtra("categoryName")) {
+            categoryName = getIntent().getStringExtra("categoryName");
             getSupportActionBar().setTitle(categoryName);
         }
         fetchProducts();
