@@ -1,5 +1,6 @@
 package com.omprakash.omstore.categories;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.omprakash.omstore.databinding.ActivityCategoriesBinding;
+import com.omprakash.omstore.network.FakeStoreApi;
+import com.omprakash.omstore.network.FakeStoreService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +35,9 @@ public class CategoriesActivity extends AppCompatActivity {
     }
 
     private void fetchCategories() {
-        CategoryApi categoryApi = new CategoryApi();
-        CategoryService categoryService = categoryApi.createCategoryService();
-        Call<List<String>> call = categoryService.fetchCategories();
+        FakeStoreApi fakeStoreApi = new FakeStoreApi();
+        FakeStoreService fakeStoreService = fakeStoreApi.createCategoryService();
+        Call<List<String>> call = fakeStoreService.fetchCategories();
         call.enqueue(new Callback<List<String>>() {
             @Override
             public void onResponse(Call<List<String>> call, Response<List<String>> response) {
