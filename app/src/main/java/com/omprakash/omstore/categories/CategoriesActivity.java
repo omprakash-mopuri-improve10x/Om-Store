@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.omprakash.omstore.BaseActivity;
 import com.omprakash.omstore.databinding.ActivityCategoriesBinding;
 import com.omprakash.omstore.network.FakeStoreApi;
 import com.omprakash.omstore.network.FakeStoreService;
@@ -17,7 +18,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CategoriesActivity extends AppCompatActivity {
+public class CategoriesActivity extends BaseActivity {
 
     ActivityCategoriesBinding binding;
     CategoriesAdapter categoriesAdapter;
@@ -41,14 +42,14 @@ public class CategoriesActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<String>>() {
             @Override
             public void onResponse(Call<List<String>> call, Response<List<String>> response) {
-                Toast.makeText(CategoriesActivity.this, "Successfully fetch the data", Toast.LENGTH_SHORT).show();
+                showToast("Successfully load the data");
                 List<String> categories = response.body();
                 categoriesAdapter.setData(categories);
             }
 
             @Override
             public void onFailure(Call<List<String>> call, Throwable t) {
-                Toast.makeText(CategoriesActivity.this, "Failed load data", Toast.LENGTH_SHORT).show();
+                showToast("Failed to load the data");
             }
         });
     }

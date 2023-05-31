@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.omprakash.omstore.BaseActivity;
 import com.omprakash.omstore.R;
 import com.omprakash.omstore.databinding.ActivityProductsBinding;
 import com.omprakash.omstore.network.FakeStoreApi;
@@ -18,7 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ProductsActivity extends AppCompatActivity {
+public class ProductsActivity extends BaseActivity {
 
     ActivityProductsBinding binding;
     ProductsAdapter productsAdapter;
@@ -46,14 +47,14 @@ public class ProductsActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
-                Toast.makeText(ProductsActivity.this, "Successfully load the data", Toast.LENGTH_SHORT).show();
+                showToast("Successfully load the data");
                 List<Product> products = response.body();
                 productsAdapter.setProducts(products);
             }
 
             @Override
             public void onFailure(Call<List<Product>> call, Throwable t) {
-                Toast.makeText(ProductsActivity.this, "Failed to load data", Toast.LENGTH_SHORT).show();
+                showToast("Failed to load the data");
             }
         });
     }

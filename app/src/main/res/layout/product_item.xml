@@ -8,47 +8,77 @@
             type="com.omprakash.omstore.products.Product" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:layout_margin="4dp"
+        app:cardCornerRadius="10dp"
+        app:strokeColor="#000000"
+        app:strokeWidth="1dp">
 
-        <ImageView
-            android:id="@+id/product_img"
-            imageUrl="@{product.imageUrl}"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_background" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/product_titte"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:text="@{product.title}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/product_img"
-            tools:text="TextView" />
+            <ImageView
+                android:id="@+id/product_img"
+                imageUrl="@{product.imageUrl}"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:padding="4dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_background" />
 
-        <RatingBar
-            android:id="@+id/product_rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/product_titte" />
+            <TextView
+                android:id="@+id/product_titte"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:padding="4dp"
+                android:text="@{product.title}"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_img"
+                tools:text="TextView" />
 
-        <TextView
-            android:id="@+id/product_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{`Rs` + String.valueOf(product.price)}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/product_rating"
-            tools:text="TextView" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <RatingBar
+                android:id="@+id/product_rating"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_titte" />
+
+            <TextView
+                android:id="@+id/product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:padding="4dp"
+                android:text="@{`₹` + String.valueOf(product.price)}"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/product_rating"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/product_rating_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{`(` + String.valueOf(product.rating.count) + `)`}"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/product_rating"
+                app:layout_constraintTop_toBottomOf="@+id/product_titte"
+                tools:text="TextView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>
