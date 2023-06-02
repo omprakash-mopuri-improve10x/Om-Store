@@ -1,11 +1,13 @@
 package com.omprakash.omstore.products;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.transition.MaterialSharedAxis;
@@ -33,6 +35,7 @@ public class ProductsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityProductsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (getIntent().hasExtra(Constants.KEY_CATEGORY_NAME)) {
             categoryName = getIntent().getStringExtra(Constants.KEY_CATEGORY_NAME);
             getSupportActionBar().setTitle(categoryName);
@@ -45,6 +48,16 @@ public class ProductsActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         fetchProducts();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
     private void fetchProducts() {

@@ -1,7 +1,10 @@
 package com.omprakash.omstore;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 import com.omprakash.omstore.databinding.ActivityProductDetailsBinding;
 import com.omprakash.omstore.products.Product;
@@ -21,10 +24,21 @@ public class ProductDetailsActivity extends BaseActivity {
         binding = ActivityProductDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Product Details");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (getIntent().hasExtra(Constants.KEY_PRODUCT_ID)) {
             productId = getIntent().getIntExtra(Constants.KEY_PRODUCT_ID, 0);
         }
         fetchProduct();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
     private void fetchProduct() {
