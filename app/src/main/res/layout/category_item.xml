@@ -10,7 +10,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/drawable_gradient">
 
         <TextView
             android:id="@+id/category_name"
@@ -23,7 +24,7 @@
             android:paddingBottom="16dp"
             android:text="TextView"
             android:textAllCaps="true"
-            android:textColor="#F57C00"
+            android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

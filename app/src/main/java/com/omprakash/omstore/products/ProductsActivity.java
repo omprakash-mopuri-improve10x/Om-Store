@@ -3,9 +3,12 @@ package com.omprakash.omstore.products;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.material.transition.MaterialSharedAxis;
 import com.omprakash.omstore.BaseActivity;
 import com.omprakash.omstore.ProductDetailsActivity;
 import com.omprakash.omstore.databinding.ActivityProductsBinding;
