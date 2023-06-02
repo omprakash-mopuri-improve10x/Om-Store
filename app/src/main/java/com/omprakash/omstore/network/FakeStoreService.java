@@ -21,6 +21,6 @@ public interface FakeStoreService {
     @GET("products/{productId}")
     Call<Product> fetchProduct(@Path("productId") int productId);
 
-    @GET("carts/{id}")
-    Call<Cart> getCart(@Path("id") int id);
+    @GET("carts")
+    Call<List<Cart>> getCart();
 }

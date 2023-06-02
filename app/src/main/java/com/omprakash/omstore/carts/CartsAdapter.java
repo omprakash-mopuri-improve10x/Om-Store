@@ -10,12 +10,13 @@ import com.omprakash.omstore.databinding.CartItemBinding;
 import com.omprakash.omstore.models.Cart;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CartsAdapter extends RecyclerView.Adapter<CartViewHolder> {
 
-    private ArrayList<Cart> carts;
+    private List<Cart> carts;
 
-    void setCarts(ArrayList<Cart> carts) {
+    void setCarts(List<Cart> carts) {
         this.carts = carts;
         notifyDataSetChanged();
     }
@@ -31,6 +32,8 @@ public class CartsAdapter extends RecyclerView.Adapter<CartViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         Cart cart = carts.get(position);
+        holder.binding.productQuantity.setText(String.valueOf(cart.cartProducts.get(position).getQuantity()));
+        holder.binding.productPrice.setText(String.valueOf(cart.cartProducts.get(position).getProductId()));
     }
 
     @Override
