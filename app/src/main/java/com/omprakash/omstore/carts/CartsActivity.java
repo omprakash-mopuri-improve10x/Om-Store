@@ -1,4 +1,4 @@
-package com.omprakash.omstore;
+package com.omprakash.omstore.carts;
 
 import androidx.appcompat.app.AppCompatActivity;
 

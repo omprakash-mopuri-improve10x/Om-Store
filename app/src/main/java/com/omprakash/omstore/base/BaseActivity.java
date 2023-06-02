@@ -1,4 +1,4 @@
-package com.omprakash.omstore;
+package com.omprakash.omstore.base;
 
 import android.content.Intent;
 import android.os.Bundle;

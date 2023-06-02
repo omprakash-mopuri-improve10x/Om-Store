@@ -5,7 +5,7 @@
     <data>
         <variable
             name="product"
-            type="com.omprakash.omstore.products.Product" />
+            type="com.omprakash.omstore.models.Product" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

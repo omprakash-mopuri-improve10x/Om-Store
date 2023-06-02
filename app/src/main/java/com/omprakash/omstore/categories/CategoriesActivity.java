@@ -1,7 +1,6 @@
 package com.omprakash.omstore.categories;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
@@ -9,15 +8,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import com.omprakash.omstore.BaseActivity;
-import com.omprakash.omstore.CartsActivity;
+import com.omprakash.omstore.base.BaseActivity;
+import com.omprakash.omstore.carts.CartsActivity;
 import com.omprakash.omstore.Constants;
 import com.omprakash.omstore.R;
 import com.omprakash.omstore.databinding.ActivityCategoriesBinding;
-import com.omprakash.omstore.network.FakeStoreApi;
-import com.omprakash.omstore.network.FakeStoreService;
 import com.omprakash.omstore.products.ProductsActivity;
 
 import java.util.ArrayList;

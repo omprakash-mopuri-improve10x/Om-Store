@@ -1,4 +1,4 @@
-package com.omprakash.omstore.products;
+package com.omprakash.omstore.models;
 
 public class Rating {
     private Float rate;

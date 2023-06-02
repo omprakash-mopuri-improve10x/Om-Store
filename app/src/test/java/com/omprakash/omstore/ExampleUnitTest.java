@@ -1,14 +1,14 @@
 package com.omprakash.omstore;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 import com.google.gson.Gson;
+import com.omprakash.omstore.models.Cart;
 import com.omprakash.omstore.network.FakeStoreApi;
 import com.omprakash.omstore.network.FakeStoreService;
-import com.omprakash.omstore.products.Product;
+import com.omprakash.omstore.models.Product;
 
 import java.io.IOException;
 import java.util.List;

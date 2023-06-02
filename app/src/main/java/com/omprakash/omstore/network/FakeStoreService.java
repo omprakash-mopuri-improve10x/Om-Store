@@ -1,9 +1,8 @@
 package com.omprakash.omstore.network;
 
-import com.omprakash.omstore.Cart;
-import com.omprakash.omstore.CartProduct;
+import com.omprakash.omstore.models.Cart;
 import com.omprakash.omstore.Constants;
-import com.omprakash.omstore.products.Product;
+import com.omprakash.omstore.models.Product;
 
 import java.util.List;
 

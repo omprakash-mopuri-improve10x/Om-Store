@@ -1,16 +1,14 @@
 package com.omprakash.omstore.products;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.omprakash.omstore.ProductDetailsActivity;
 import com.omprakash.omstore.databinding.ProductItemBinding;
+import com.omprakash.omstore.models.Product;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {

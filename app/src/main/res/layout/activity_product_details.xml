@@ -6,7 +6,7 @@
     <data>
         <variable
             name="product"
-            type="com.omprakash.omstore.products.Product" />
+            type="com.omprakash.omstore.models.Product" />
     </data>
 
     <ScrollView

@@ -4,20 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.android.material.transition.MaterialSharedAxis;
-import com.omprakash.omstore.BaseActivity;
-import com.omprakash.omstore.CartsActivity;
+import com.omprakash.omstore.base.BaseActivity;
+import com.omprakash.omstore.carts.CartsActivity;
 import com.omprakash.omstore.Constants;
-import com.omprakash.omstore.ProductDetailsActivity;
-import com.omprakash.omstore.R;
 import com.omprakash.omstore.databinding.ActivityProductsBinding;
+import com.omprakash.omstore.productdetails.ProductDetailsActivity;
+import com.omprakash.omstore.R;
+import com.omprakash.omstore.models.Product;
 
 import java.util.ArrayList;
 import java.util.List;
