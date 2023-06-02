@@ -14,6 +14,7 @@ import com.google.android.material.transition.MaterialSharedAxis;
 import com.omprakash.omstore.BaseActivity;
 import com.omprakash.omstore.Constants;
 import com.omprakash.omstore.ProductDetailsActivity;
+import com.omprakash.omstore.R;
 import com.omprakash.omstore.databinding.ActivityProductsBinding;
 
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class ProductsActivity extends BaseActivity {
         binding = ActivityProductsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_splash));
         if (getIntent().hasExtra(Constants.KEY_CATEGORY_NAME)) {
             categoryName = getIntent().getStringExtra(Constants.KEY_CATEGORY_NAME);
             getSupportActionBar().setTitle(categoryName);

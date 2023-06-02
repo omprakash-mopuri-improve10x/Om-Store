@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.omprakash.omstore.BaseActivity;
 import com.omprakash.omstore.Constants;
+import com.omprakash.omstore.R;
 import com.omprakash.omstore.databinding.ActivityCategoriesBinding;
 import com.omprakash.omstore.network.FakeStoreApi;
 import com.omprakash.omstore.network.FakeStoreService;
@@ -33,6 +34,7 @@ public class CategoriesActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCategoriesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_splash));
         getSupportActionBar().setTitle("Categories");
         fetchCategories();
         setupCategoriesAdapter();
