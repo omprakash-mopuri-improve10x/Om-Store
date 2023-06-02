@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.omprakash.omstore.BaseActivity;
+import com.omprakash.omstore.Constants;
 import com.omprakash.omstore.databinding.ActivityCategoriesBinding;
 import com.omprakash.omstore.network.FakeStoreApi;
 import com.omprakash.omstore.network.FakeStoreService;
@@ -45,7 +46,6 @@ public class CategoriesActivity extends BaseActivity {
             @Override
             public void onResponse(Call<List<String>> call, Response<List<String>> response) {
                 hideProgressBar();
-                showToast("Successfully loaded the data");
                 List<String> categories = response.body();
                 categoriesAdapter.setData(categories);
             }
@@ -65,7 +65,7 @@ public class CategoriesActivity extends BaseActivity {
             @Override
             public void onItemClicked(String categoryName) {
                 Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
-                intent.putExtra("categoryName", categoryName);
+                intent.putExtra(Constants.KEY_CATEGORY_NAME, categoryName);
                 startActivity(intent);
             }
         });

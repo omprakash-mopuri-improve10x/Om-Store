@@ -21,8 +21,8 @@ public class ProductDetailsActivity extends BaseActivity {
         binding = ActivityProductDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Product Details");
-        if (getIntent().hasExtra("productId")) {
-            productId = getIntent().getIntExtra("productId", 0);
+        if (getIntent().hasExtra(Constants.KEY_PRODUCT_ID)) {
+            productId = getIntent().getIntExtra(Constants.KEY_PRODUCT_ID, 0);
         }
         fetchProduct();
     }
@@ -34,7 +34,6 @@ public class ProductDetailsActivity extends BaseActivity {
             @Override
             public void onResponse(Call<Product> call, Response<Product> response) {
                 hideProgressBar();
-                showToast("successfully loaded the data");
                 Product product = response.body();
                 binding.setProduct(product);
                 binding.productRating.setRating(product.rating.getRate());

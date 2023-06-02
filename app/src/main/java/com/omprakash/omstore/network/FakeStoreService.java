@@ -14,7 +14,7 @@ public interface FakeStoreService {
     @GET(Constants.CATEGORY_ENDPOINT)
     Call<List<String>> fetchCategories();
 
-    @GET("/products/category/{categoryName}")
+    @GET("products/category/{categoryName}")
     Call<List<Product>> fetchProducts(@Path("categoryName") String categoryName);
 
     @GET("/products/{productId}")

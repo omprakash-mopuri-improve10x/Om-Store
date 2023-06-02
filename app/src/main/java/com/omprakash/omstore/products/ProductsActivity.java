@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.google.android.material.transition.MaterialSharedAxis;
 import com.omprakash.omstore.BaseActivity;
+import com.omprakash.omstore.Constants;
 import com.omprakash.omstore.ProductDetailsActivity;
 import com.omprakash.omstore.databinding.ActivityProductsBinding;
 
@@ -32,13 +33,18 @@ public class ProductsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityProductsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        if (getIntent().hasExtra("categoryName")) {
-            categoryName = getIntent().getStringExtra("categoryName");
+        if (getIntent().hasExtra(Constants.KEY_CATEGORY_NAME)) {
+            categoryName = getIntent().getStringExtra(Constants.KEY_CATEGORY_NAME);
             getSupportActionBar().setTitle(categoryName);
         }
-        fetchProducts();
         setupProductsAdapter();
         setupProductsRv();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fetchProducts();
     }
 
     private void fetchProducts() {
@@ -48,7 +54,6 @@ public class ProductsActivity extends BaseActivity {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 hideProgressBar();
-                showToast("Successfully loaded the data");
                 List<Product> products = response.body();
                 productsAdapter.setProducts(products);
             }
@@ -68,7 +73,7 @@ public class ProductsActivity extends BaseActivity {
             @Override
             public void onItemClicked(int productId) {
                 Intent intent = new Intent(getApplicationContext(), ProductDetailsActivity.class);
-                intent.putExtra("productId", productId);
+                intent.putExtra(Constants.KEY_PRODUCT_ID, productId);
                 startActivity(intent);
             }
         });

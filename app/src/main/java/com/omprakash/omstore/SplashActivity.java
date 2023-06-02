@@ -11,19 +11,20 @@ import com.omprakash.omstore.databinding.ActivitySplashBinding;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private ActivitySplashBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivitySplashBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_splash);
         getSupportActionBar().hide();
+        handleSplash();
+    }
+
+    private void handleSplash() {
         Handler handler = new Handler();
         handler.postDelayed(() -> {
             Intent intent = new Intent(this, CategoriesActivity.class);
             startActivity(intent);
             finish();
-        }, 3000);
+        }, 2000);
     }
 }
