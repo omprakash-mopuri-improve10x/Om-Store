@@ -25,7 +25,6 @@ public class ProductDetailsActivity extends BaseActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Product Details");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_splash));
         if (getIntent().hasExtra(Constants.KEY_PRODUCT_ID)) {
             productId = getIntent().getIntExtra(Constants.KEY_PRODUCT_ID, 0);
         }

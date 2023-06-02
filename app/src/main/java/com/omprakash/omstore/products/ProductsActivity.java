@@ -37,7 +37,6 @@ public class ProductsActivity extends BaseActivity {
         binding = ActivityProductsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_splash));
         if (getIntent().hasExtra(Constants.KEY_CATEGORY_NAME)) {
             categoryName = getIntent().getStringExtra(Constants.KEY_CATEGORY_NAME);
             getSupportActionBar().setTitle(categoryName);
