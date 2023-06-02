@@ -36,7 +36,6 @@ public class ProductDetailsActivity extends BaseActivity {
                 hideProgressBar();
                 Product product = response.body();
                 binding.setProduct(product);
-                binding.productRating.setRating(product.rating.getRate());
             }
 
             @Override

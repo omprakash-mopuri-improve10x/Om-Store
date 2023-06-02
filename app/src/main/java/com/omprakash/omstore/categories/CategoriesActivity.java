@@ -64,7 +64,7 @@ public class CategoriesActivity extends BaseActivity {
         categoriesAdapter.setOnItemActionListener(new OnItemActionListener() {
             @Override
             public void onItemClicked(String categoryName) {
-                Intent intent = new Intent(getApplicationContext(), ProductsActivity.class);
+                Intent intent = new Intent(CategoriesActivity.this, ProductsActivity.class);
                 intent.putExtra(Constants.KEY_CATEGORY_NAME, categoryName);
                 startActivity(intent);
             }

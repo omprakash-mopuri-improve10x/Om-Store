@@ -1,6 +1,5 @@
 package com.omprakash.omstore.categories;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -8,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.omprakash.omstore.databinding.CategoryItemBinding;
-import com.omprakash.omstore.products.ProductsActivity;
 
 import java.util.List;
 
