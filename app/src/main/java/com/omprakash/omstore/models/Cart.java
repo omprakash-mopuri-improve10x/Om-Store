@@ -1,5 +1,7 @@
 package com.omprakash.omstore.models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 
 public class Cart {
@@ -8,7 +10,8 @@ public class Cart {
     private Integer userId;
     private String date;
 
-    public ArrayList<CartProduct> cartProduct;
+    @SerializedName("products")
+    public ArrayList<CartProduct> cartProducts;
 
     public Integer getId() {
         return id;
