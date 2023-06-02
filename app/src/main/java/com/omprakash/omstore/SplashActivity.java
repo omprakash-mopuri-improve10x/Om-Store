@@ -18,6 +18,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportActionBar().hide();
         Handler handler = new Handler();
         handler.postDelayed(() -> {
             Intent intent = new Intent(this, CategoriesActivity.class);
