@@ -1,5 +1,7 @@
 package com.omprakash.omstore.network;
 
+import com.omprakash.omstore.Cart;
+import com.omprakash.omstore.CartProduct;
 import com.omprakash.omstore.Constants;
 import com.omprakash.omstore.products.Product;
 
@@ -19,4 +21,7 @@ public interface FakeStoreService {
 
     @GET("products/{productId}")
     Call<Product> fetchProduct(@Path("productId") int productId);
+
+    @GET("carts/{id}")
+    Call<Cart> getCart(@Path("id") int id);
 }
