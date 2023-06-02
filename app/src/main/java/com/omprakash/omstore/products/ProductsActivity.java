@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.transition.MaterialSharedAxis;
 import com.omprakash.omstore.BaseActivity;
+import com.omprakash.omstore.CartsActivity;
 import com.omprakash.omstore.Constants;
 import com.omprakash.omstore.ProductDetailsActivity;
 import com.omprakash.omstore.R;
@@ -52,9 +54,19 @@ public class ProductsActivity extends BaseActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.cart_menu, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             finish();
+            return true;
+        } else if (item.getItemId() == R.id.cart_img) {
+            Intent intent = new Intent(this, CartsActivity.class);
+            startActivity(intent);
             return true;
         } else {
             return super.onOptionsItemSelected(item);

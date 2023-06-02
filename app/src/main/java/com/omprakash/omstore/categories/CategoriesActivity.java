@@ -1,14 +1,18 @@
 package com.omprakash.omstore.categories;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.omprakash.omstore.BaseActivity;
+import com.omprakash.omstore.CartsActivity;
 import com.omprakash.omstore.Constants;
 import com.omprakash.omstore.R;
 import com.omprakash.omstore.databinding.ActivityCategoriesBinding;
@@ -38,6 +42,21 @@ public class CategoriesActivity extends BaseActivity {
         fetchCategories();
         setupCategoriesAdapter();
         setupCategoriesRv();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.cart_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.cart_img) {
+            Intent intent = new Intent(this, CartsActivity.class);
+            startActivity(intent);
+        }
+        return true;
     }
 
     private void fetchCategories() {
