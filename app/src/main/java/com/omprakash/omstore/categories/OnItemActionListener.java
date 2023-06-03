@@ -2,5 +2,5 @@ package com.omprakash.omstore.categories;
 
 public interface OnItemActionListener {
 
-    void onItemClicked(String categoryName);
+    void onItemClicked(int categoryId);
 }

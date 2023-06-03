@@ -20,7 +20,7 @@
 
         <ImageView
             android:id="@+id/product_img"
-            imageUrl="@{product.imageUrl}"
+            imageUrl="@{product.images.get(0)}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -50,8 +50,9 @@
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:rating="@{product.rating.rate}"
             android:layout_marginStart="4dp"
+            android:rating="@{product.rating.rate}"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_titte" />
 
@@ -75,6 +76,7 @@
             android:layout_marginStart="8dp"
             android:text="@{`(` + String.valueOf(product.rating.count) + `)`}"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/product_rating"
             app:layout_constraintTop_toBottomOf="@+id/product_titte"
             tools:text="TextView" />

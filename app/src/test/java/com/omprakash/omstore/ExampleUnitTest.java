@@ -43,7 +43,7 @@ public class ExampleUnitTest {
     public void getProducts() throws IOException {
         FakeStoreApi fakeStoreApi = new FakeStoreApi();
         FakeStoreService fakeStoreService = fakeStoreApi.createCategoryService();
-        Call<List<Product>> call = fakeStoreService.fetchProducts("jewelery");
+        Call<List<Product>> call = fakeStoreService.fetchProducts(1);
         List<Product> products = call.execute().body();
         assertNotNull(products);
         assertFalse(products.isEmpty());

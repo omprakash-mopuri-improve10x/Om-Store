@@ -29,7 +29,7 @@ public class ProductsActivity extends BaseActivity {
     private ActivityProductsBinding binding;
     private ProductsAdapter productsAdapter;
     private ArrayList<Product> products = new ArrayList<>();
-    private String categoryName;
+    private int categoryId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +37,9 @@ public class ProductsActivity extends BaseActivity {
         binding = ActivityProductsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        if (getIntent().hasExtra(Constants.KEY_CATEGORY_NAME)) {
-            categoryName = getIntent().getStringExtra(Constants.KEY_CATEGORY_NAME);
-            getSupportActionBar().setTitle(categoryName);
+        if (getIntent().hasExtra(Constants.KEY_CATEGORY_ID)) {
+            categoryId = getIntent().getIntExtra(Constants.KEY_CATEGORY_ID, 0);
+            getSupportActionBar().setTitle("products");
         }
         setupProductsAdapter();
         setupProductsRv();
@@ -73,7 +73,7 @@ public class ProductsActivity extends BaseActivity {
 
     private void fetchProducts() {
         showProgressBar();
-        Call<List<Product>> call = fakeStoreService.fetchProducts(categoryName);
+        Call<List<Product>> call = fakeStoreService.fetchProducts(categoryId);
         call.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {

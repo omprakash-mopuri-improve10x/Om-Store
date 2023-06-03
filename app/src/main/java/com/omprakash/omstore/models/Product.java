@@ -2,14 +2,20 @@ package com.omprakash.omstore.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class Product {
     private Integer id;
     private String title;
     private Float price;
     private String description;
-    private String category;
-    @SerializedName("image")
-    private String imageUrl;
+    //private String category;
+
+    private Category category;
+
+    private ArrayList<String> images;
+    /*@SerializedName("image")
+    private String imageUrl;*/
     public Rating rating;
 
 
@@ -45,19 +51,35 @@ public class Product {
         this.description = description;
     }
 
-    public String getCategory() {
+    /*public String getCategory() {
         return category;
     }
 
     public void setCategory(String category) {
         this.category = category;
-    }
+    }*/
 
-    public String getImageUrl() {
+    /*public String getImageUrl() {
         return imageUrl;
     }
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }*/
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public ArrayList<String> getImages() {
+        return images;
+    }
+
+    public void setImages(ArrayList<String> images) {
+        this.images = images;
     }
 }
