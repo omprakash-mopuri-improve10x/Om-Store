@@ -54,7 +54,7 @@ public class ExampleUnitTest {
     public void getProduct() throws IOException {
         FakeStoreApi fakeStoreApi = new FakeStoreApi();
         FakeStoreService fakeStoreService = fakeStoreApi.createCategoryService();
-        Call<Product> call = fakeStoreService.fetchProduct(1);
+        Call<Product> call = fakeStoreService.fetchProduct(2);
         Product products = call.execute().body();
         assertNotNull(products);
         System.out.println(new Gson().toJson(products));

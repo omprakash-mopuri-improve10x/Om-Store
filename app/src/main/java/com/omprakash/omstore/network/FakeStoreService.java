@@ -21,7 +21,7 @@ public interface FakeStoreService {
     @GET("api/v1/products/")
     Call<List<Product>> fetchProducts(@Query("categoryId") int categoryId);
 
-    @GET("products/{productId}")
+    @GET("api/v1/products/{productId}")
     Call<Product> fetchProduct(@Path("productId") int productId);
 
     @GET("carts/1?userId=1")
