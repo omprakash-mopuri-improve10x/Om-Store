@@ -14,6 +14,7 @@ import com.omprakash.omstore.carts.CartsActivity;
 import com.omprakash.omstore.Constants;
 import com.omprakash.omstore.R;
 import com.omprakash.omstore.databinding.ActivityCategoriesBinding;
+import com.omprakash.omstore.models.Category;
 import com.omprakash.omstore.products.ProductsActivity;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class CategoriesActivity extends BaseActivity {
 
     private ActivityCategoriesBinding binding;
     private CategoriesAdapter categoriesAdapter;
-    private ArrayList<String> categories = new ArrayList<>();
+    private ArrayList<Category> categories = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,17 +58,17 @@ public class CategoriesActivity extends BaseActivity {
 
     private void fetchCategories() {
         showProgressBar();
-        Call<List<String>> call = fakeStoreService.fetchCategories();
-        call.enqueue(new Callback<List<String>>() {
+        Call<List<Category>> call = fakeStoreService.fetchCategories();
+        call.enqueue(new Callback<List<Category>>() {
             @Override
-            public void onResponse(Call<List<String>> call, Response<List<String>> response) {
+            public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {
                 hideProgressBar();
-                List<String> categories = response.body();
+                List<Category> categories = response.body();
                 categoriesAdapter.setData(categories);
             }
 
             @Override
-            public void onFailure(Call<List<String>> call, Throwable t) {
+            public void onFailure(Call<List<Category>> call, Throwable t) {
                 hideProgressBar();
                 showToast("Failed to load the data");
             }

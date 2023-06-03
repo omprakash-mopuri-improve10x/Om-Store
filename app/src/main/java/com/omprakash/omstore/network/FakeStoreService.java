@@ -3,6 +3,7 @@ package com.omprakash.omstore.network;
 import com.omprakash.omstore.models.Cart;
 import com.omprakash.omstore.Constants;
 import com.omprakash.omstore.models.CartProduct;
+import com.omprakash.omstore.models.Category;
 import com.omprakash.omstore.models.Product;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import retrofit2.http.Path;
 public interface FakeStoreService {
 
     @GET(Constants.CATEGORY_ENDPOINT)
-    Call<List<String>> fetchCategories();
+    Call<List<Category>> fetchCategories();
 
     @GET("products/category/{categoryName}")
     Call<List<Product>> fetchProducts(@Path("categoryName") String categoryName);
