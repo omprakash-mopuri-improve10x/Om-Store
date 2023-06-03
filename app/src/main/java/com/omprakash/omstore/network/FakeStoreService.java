@@ -2,6 +2,7 @@ package com.omprakash.omstore.network;
 
 import com.omprakash.omstore.models.Cart;
 import com.omprakash.omstore.Constants;
+import com.omprakash.omstore.models.CartProduct;
 import com.omprakash.omstore.models.Product;
 
 import java.util.List;
@@ -21,6 +22,6 @@ public interface FakeStoreService {
     @GET("products/{productId}")
     Call<Product> fetchProduct(@Path("productId") int productId);
 
-    @GET("carts")
-    Call<List<Cart>> getCart();
+    @GET("carts/1?userId=1")
+    Call<Cart> getCart();
 }

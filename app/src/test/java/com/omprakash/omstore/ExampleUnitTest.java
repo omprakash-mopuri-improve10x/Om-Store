@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 import com.google.gson.Gson;
 import com.omprakash.omstore.models.Cart;
+import com.omprakash.omstore.models.CartProduct;
 import com.omprakash.omstore.network.FakeStoreApi;
 import com.omprakash.omstore.network.FakeStoreService;
 import com.omprakash.omstore.models.Product;
@@ -58,13 +59,13 @@ public class ExampleUnitTest {
         System.out.println(new Gson().toJson(products));
     }
 
-   /* @Test
+    @Test
     public void getCart() throws IOException {
         FakeStoreApi fakeStoreApi = new FakeStoreApi();
         FakeStoreService fakeStoreService = fakeStoreApi.createCategoryService();
-        Call<Cart> call = fakeStoreService.getCart(2);
+        Call<Cart> call = fakeStoreService.getCart();
         Cart cart = call.execute().body();
         assertNotNull(cart);
         System.out.println(new Gson().toJson(cart));
-    }*/
+    }
 }

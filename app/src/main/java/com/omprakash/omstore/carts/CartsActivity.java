@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.omprakash.omstore.base.BaseActivity;
 import com.omprakash.omstore.databinding.ActivityCartsBinding;
 import com.omprakash.omstore.models.Cart;
+import com.omprakash.omstore.models.CartProduct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,31 +21,32 @@ public class CartsActivity extends BaseActivity {
 
     private ActivityCartsBinding binding;
     private CartsAdapter cartsAdapter;
-    private ArrayList<Cart> carts = new ArrayList<>();
+    private ArrayList<CartProduct> carts = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCartsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportActionBar().setTitle("Carts");
         getCart();
         setupCartsAdapter();
         setupCartsRv();
     }
 
     private void getCart() {
-        Call<List<Cart>> call = fakeStoreService.getCart();
-        call.enqueue(new Callback<List<Cart>>() {
+        Call<Cart> call = fakeStoreService.getCart();
+        call.enqueue(new Callback<Cart>() {
             @Override
-            public void onResponse(Call<List<Cart>> call, Response<List<Cart>> response) {
+            public void onResponse(Call<Cart> call, Response<Cart> response) {
                 if (response.isSuccessful()) {
-                    List<Cart> carts = response.body();
-                    cartsAdapter.setCarts(carts);
+                    Cart cart = response.body();
+                    cartsAdapter.setCarts(cart.getCartProducts());
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Cart>> call, Throwable t) {
+            public void onFailure(Call<Cart> call, Throwable t) {
                 showToast("Failed to load data");
             }
         });

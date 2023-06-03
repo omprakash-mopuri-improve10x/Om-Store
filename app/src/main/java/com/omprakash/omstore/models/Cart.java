@@ -11,7 +11,15 @@ public class Cart {
     private String date;
 
     @SerializedName("products")
-    public ArrayList<CartProduct> cartProducts;
+    private ArrayList<CartProduct> cartProducts;
+
+    public ArrayList<CartProduct> getCartProducts() {
+        return cartProducts;
+    }
+
+    public void setCartProducts(ArrayList<CartProduct> cartProducts) {
+        this.cartProducts = cartProducts;
+    }
 
     public Integer getId() {
         return id;

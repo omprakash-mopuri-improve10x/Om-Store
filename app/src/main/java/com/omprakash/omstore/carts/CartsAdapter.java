@@ -8,15 +8,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.omprakash.omstore.databinding.CartItemBinding;
 import com.omprakash.omstore.models.Cart;
+import com.omprakash.omstore.models.CartProduct;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CartsAdapter extends RecyclerView.Adapter<CartViewHolder> {
 
-    private List<Cart> carts;
+    private List<CartProduct> carts;
 
-    void setCarts(List<Cart> carts) {
+    void setCarts(List<CartProduct> carts) {
         this.carts = carts;
         notifyDataSetChanged();
     }
@@ -31,9 +32,9 @@ public class CartsAdapter extends RecyclerView.Adapter<CartViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
-        Cart cart = carts.get(position);
-        holder.binding.productQuantity.setText(String.valueOf(cart.cartProducts.get(position).getQuantity()));
-        holder.binding.productPrice.setText(String.valueOf(cart.cartProducts.get(position).getProductId()));
+        CartProduct cartProduct = carts.get(position);
+        holder.binding.productQuantity.setText(String.valueOf(cartProduct.getQuantity()));
+        holder.binding.productPrice.setText(String.valueOf(cartProduct.getProductId()));
     }
 
     @Override
