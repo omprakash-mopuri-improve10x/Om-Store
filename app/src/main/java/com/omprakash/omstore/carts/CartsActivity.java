@@ -1,6 +1,5 @@
 package com.omprakash.omstore.carts;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import com.omprakash.omstore.models.Cart;
 import com.omprakash.omstore.models.CartProduct;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,7 +19,7 @@ public class CartsActivity extends BaseActivity {
 
     private ActivityCartsBinding binding;
     private CartsAdapter cartsAdapter;
-    private ArrayList<CartProduct> carts = new ArrayList<>();
+    private ArrayList<CartProduct> cartProducts = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +52,7 @@ public class CartsActivity extends BaseActivity {
 
     private void setupCartsAdapter() {
         cartsAdapter = new CartsAdapter();
-        cartsAdapter.setCarts(carts);
+        cartsAdapter.setCarts(cartProducts);
     }
 
     private void setupCartsRv() {
