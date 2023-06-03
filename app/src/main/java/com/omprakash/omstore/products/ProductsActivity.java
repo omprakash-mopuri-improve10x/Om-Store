@@ -39,7 +39,7 @@ public class ProductsActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         if (getIntent().hasExtra(Constants.KEY_CATEGORY_ID)) {
             categoryId = getIntent().getIntExtra(Constants.KEY_CATEGORY_ID, 0);
-            getSupportActionBar().setTitle("products");
+            getSupportActionBar().setTitle("Products");
         }
         setupProductsAdapter();
         setupProductsRv();
