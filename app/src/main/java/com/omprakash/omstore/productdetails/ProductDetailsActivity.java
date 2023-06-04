@@ -40,6 +40,8 @@ public class ProductDetailsActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.cart_menu, menu);
+        MenuItem menuItem = menu.findItem(R.id.search_icon);
+        menuItem.setVisible(false);
         return super.onCreateOptionsMenu(menu);
     }
 

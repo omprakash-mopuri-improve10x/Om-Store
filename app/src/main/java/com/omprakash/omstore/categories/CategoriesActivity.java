@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.omprakash.omstore.SearchProductsActivity;
 import com.omprakash.omstore.base.BaseActivity;
 import com.omprakash.omstore.carts.CartsActivity;
 import com.omprakash.omstore.Constants;
@@ -52,8 +53,14 @@ public class CategoriesActivity extends BaseActivity {
         if (item.getItemId() == R.id.cart_img) {
             Intent intent = new Intent(this, CartsActivity.class);
             startActivity(intent);
+            return true;
+        } else if (item.getItemId() == R.id.search_icon) {
+            Intent intent = new Intent(this, SearchProductsActivity.class);
+            startActivity(intent);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
-        return true;
     }
 
     private void fetchCategories() {
