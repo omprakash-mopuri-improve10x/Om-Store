@@ -9,7 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.omprakash.omstore.SearchProductsActivity;
+import com.omprakash.omstore.search.SearchProductsActivity;
 import com.omprakash.omstore.base.BaseActivity;
 import com.omprakash.omstore.carts.CartsActivity;
 import com.omprakash.omstore.Constants;

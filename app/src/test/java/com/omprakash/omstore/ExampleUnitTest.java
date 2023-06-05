@@ -69,4 +69,15 @@ public class ExampleUnitTest {
         assertNotNull(cart);
         System.out.println(new Gson().toJson(cart));
     }
+
+    @Test
+    public void getSearchProducts() throws IOException {
+        FakeStoreApi fakeStoreApi = new FakeStoreApi();
+        FakeStoreService fakeStoreService = fakeStoreApi.createCategoryService();
+        Call<List<Product>> call = fakeStoreService.fetchProducts("Generic");
+        List<Product> products = call.execute().body();
+        assertNotNull(products);
+        assertFalse(products.isEmpty());
+        System.out.println(new Gson().toJson(products));
+    }
 }
