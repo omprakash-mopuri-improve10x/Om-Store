@@ -1,11 +1,13 @@
 package com.omprakash.omstore.categories;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.omprakash.omstore.R;
 import com.omprakash.omstore.databinding.CategoryItemBinding;
 import com.omprakash.omstore.models.Category;
 

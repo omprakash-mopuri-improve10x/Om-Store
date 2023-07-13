@@ -2,6 +2,8 @@ package com.omprakash.omstore.products;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,11 +38,13 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
+        Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), android.R.anim.slide_in_left);
         Product product = products.get(position);
         holder.binding.setProduct(product);
         holder.binding.getRoot().setOnClickListener(v -> {
             onItemActionListener.onItemClicked(product.getId());
         });
+        holder.itemView.startAnimation(animation);
     }
 
     @Override
